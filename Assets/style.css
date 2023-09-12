@@ -3,3 +3,88 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* Navbar styles */
+.navbar {
+    background: rgb(76, 0, 255);
+    background: linear-gradient(90deg, rgba(76, 0, 255, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
+    color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left side menu items */
+.left-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Adjust the gap between menu items */
+    flex: 1;
+}
+
+.left-menu a {
+    text-decoration: none;
+    color: #ffffff;
+    /* Change to your preferred text color */
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    /* Change to your preferred background color */
+    min-width: 120px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    text-decoration: underline;
+}
+
+/* Centered company name */
+.company-name {
+    font-size: 24px;
+    /* Adjust font size as needed */
+    text-align: center;
+    flex-grow: 1;
+    /* Expands to take available space */
+}
+
+/* Right side menu items */
+.right-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    /* Adjust the gap between menu items */
+    flex: 1;
+}
+
+.about-us {
+    color: #ffffff;
+}
+
+/* Cart and person icons (Font Awesome) */
+.menu-item {
+    font-size: 24px;
+    /* Adjust font size as needed */
+    color: #ffffff;
+    /* Change to your preferred text color */
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    font-size: 28px;
+    /* Adjust the font size on hover */
+    color: #ff0000;
+    /* Change the text color on hover */
+}
