@@ -74,3 +74,28 @@ document.addEventListener("DOMContentLoaded", function () {
     prevButton.addEventListener("click", prevSecondCarouselSlide);
   });
 
+
+
+  // JavaScript code to handle scrolling and add the "scroll" class to the navbar
+
+// Get a reference to the navbar
+const navbar = document.getElementById('navbar');
+
+// Listen for the "scroll" event on the window
+window.addEventListener('scroll', () => {
+    // Check the scroll position
+    if (window.scrollY > 100) { // Adjust the value as needed
+        // Add the "scroll" class to the navbar
+        navbar.classList.add('scroll');
+    } else {
+        // Remove the "scroll" class from the navbar
+        navbar.classList.remove('scroll');
+    }
+});
+
+// Set the initial state based on the initial scroll position
+if (window.scrollY > 100) { // Adjust the value as needed
+    navbar.classList.add('scroll');
+} else {
+    navbar.classList.remove('scroll');
+}
