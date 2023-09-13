@@ -1,34 +1,54 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
 
 
 /* Navbar styles */
-.navbar {
-    background: rgb(76, 0, 255);
-    background: linear-gradient(90deg, rgba(76, 0, 255, 1) 0%, rgba(9, 9, 121, 1) 49%, rgba(0, 212, 255, 1) 100%);
-    color: #ffffff;
-    padding: 20px 40px;
+#navbar {
+    position: fixed;
+    top: 5;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    background-color: transparent;
+    transition: background-color 0.3s, padding 0.3s;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 40px;
 }
+
+#navbar.scroll {
+    background-color: #d3aa74;
+    padding: 20px 40px;
+}
+
 
 /* Left side menu items */
 .left-menu {
     display: flex;
     align-items: center;
     gap: 20px;
-    /* Adjust the gap between menu items */
     flex: 1;
+    font-size: 15px;
 }
+
+/* Hide the left menu by default on mobile devices */
+.mobile-menu-btn {
+    transform: translateX(-100%);
+}
+
 
 .left-menu a {
     text-decoration: none;
     color: #ffffff;
-    /* Change to your preferred text color */
+}
+
+.left-menu a:hover {
+    text-decoration: underline;
 }
 
 /* Dropdown styles */
@@ -40,7 +60,6 @@
     display: none;
     position: absolute;
     background-color: rgb(255, 255, 255);
-    /* Change to your preferred background color */
     min-width: 120px;
     z-index: 1;
 }
@@ -53,10 +72,9 @@
 /* Centered company name */
 .company-name {
     font-size: 24px;
-    /* Adjust font size as needed */
     text-align: center;
+    color: white;
     flex-grow: 1;
-    /* Expands to take available space */
 }
 
 /* Right side menu items */
@@ -65,26 +83,368 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    /* Adjust the gap between menu items */
     flex: 1;
 }
 
 .about-us {
     color: #ffffff;
+    font-size: 15px;
 }
 
 /* Cart and person icons (Font Awesome) */
 .menu-item {
-    font-size: 24px;
-    /* Adjust font size as needed */
+    font-size: 16px;
     color: #ffffff;
-    /* Change to your preferred text color */
     transition: all 0.3s ease;
 }
 
 .menu-item:hover {
-    font-size: 28px;
-    /* Adjust the font size on hover */
+    font-size: 20px;
     color: #ff0000;
-    /* Change the text color on hover */
+}
+
+
+
+
+.carousel-container {
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Individual slide styles */
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+/* Background image styles */
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Slide content styles */
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Text styles */
+.slide-content h1 {
+    font-size: 50px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* Paragraph styles */
+.slide-content p {
+    font-size: 15px;
+    font-weight: 200;
+    margin: 20px 0;
+}
+
+/* Read More button styles */
+.read-more {
+    background-color: #000000;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    opacity: 0.8;
+    color: #FACE93;
+}
+
+
+
+
+
+.sticky-button {
+    position: fixed;
+    right: 23px;
+    bottom: 42%;
+    z-index: 999;
+    transform: rotate(90deg);
+    transform-origin: bottom right;
+}
+
+.sticky-btn {
+    background-color: #000000;
+    color: #fff;
+    padding: 6px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+.sticky-btn:hover {
+    opacity: 0.7;
+}
+
+
+
+
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.main-container-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 50px;
+    align-items: center;
+}
+
+.main-container-header-heading {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 10px;
+}
+
+.main-container-header-para {
+    font-size: 50px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+
+/* Universal padding for left and right */
+.second-carousel {
+    padding-left: 50px;
+    padding-right: 30px;
+    width: 90%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    /* Optional background color */
+}
+
+/* Individual slide styles */
+.second-carousel-slide {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-right: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-button
+
+/* Background image styles */
+.second-carousel-img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* Slide content styles */
+.second-slide-content {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    color: #000000;
+    transition: opacity 0.3s;
+}
+
+/* Text styles */
+.product-text {
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 7px;
+    margin: 5px 0;
+}
+
+/* Hover effect for slide content */
+.second-carousel-slide:hover .second-slide-content {
+    opacity: 1;
+}
+
+/* Button styles */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.prev-button {
+    left: 0;
+}
+
+.next-button {
+    right: 0;
+}
+
+
+
+
+
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eaa-container,
+.whey-container {
+    flex: 1;
+    padding: 20px;
+    margin: 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.eaa-container,
+.whey-container {
+    width: 80%;
+}
+
+.eaa-text {
+    flex: 1;
+    padding: 100px;
+}
+
+.eaa-name {
+    font-size: 12px;
+    letter-spacing: 6px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.eaa-full-name {
+    font-size: 34px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.eaa-details {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.read-btn {
+    margin: 20px;
+    display: inline-block;
+    padding: 18px 30px;
+    background-color: #FACE93;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.read-btn:hover {
+    background-color: black;
+    color: #FACE93;
+}
+
+.images img {
+    max-width: 80%;
+    height: auto;
+}
+
+.whey-text {
+    padding: 100px;
+}
+
+.whey-name {
+    font-size: 12px;
+    letter-spacing: 6px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.whey-full-name {
+    font-size: 34px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.whey-details {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.whey-images img {
+    max-width: 80%;
+    height: 60%;
+}
+
+.boost-images img {
+    max-width: 110%;
+    height: 60%;
+}
+
+
+
+
+.pursuit {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 100px 85px;
+}
+
+.pursuit-heading {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.pursuit-paragraph {
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.more-pursuit {
+    font-weight: bolder;
+    text-decoration: none;
+    color: #000000;
+}
+
+.more-pursuit:hover {
+    color: #FACE93;
 }
