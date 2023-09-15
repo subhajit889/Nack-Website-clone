@@ -1,8 +1,9 @@
 ## This is a website clone
+
 ## Tech Stack used
-1. HTML
-2. CSS
-3. JavaScript
+1. HTML:- for structure or web page
+2. CSS:- for styling the webpage with responsiveness
+3. JavaScript :- for making website interactive
 
 ## Live Preview link
-links:- 
+links:- https://subhajit889.github.io/Nack-Website-clone/
