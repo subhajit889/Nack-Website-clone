@@ -1,86 +1,69 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const carouselContainer = document.querySelector(".carousel-container");
-    const secondCarousel = document.querySelector(".second-carousel");
-    const prevButton = document.querySelector(".prev-button");
-    const nextButton = document.querySelector(".next-button");
-    const carouselSlides = document.querySelectorAll(".carousel-slide");
-    const secondCarouselSlides = document.querySelectorAll(".second-carousel-slide");
-  
-    let currentCarouselIndex = 0;
-    let currentSecondCarouselIndex = 0;
-  
-    // Function to show a specific carousel slide
-    function showCarouselSlide(index) {
-      carouselSlides.forEach((slide) => {
-        slide.classList.remove("active");
-      });
-      carouselSlides[index].classList.add("active");
+// Main Carousel
+const mainCarousel = document.querySelector('.carousel-container');
+const mainCarouselSlides = mainCarousel.querySelectorAll('.carousel-slide');
+let mainCurrentSlide = 0;
+
+function mainShowSlide(index) {
+  mainCarouselSlides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
     }
-  
-    // Function to show a specific second carousel slide
-    function showSecondCarouselSlide(index) {
-      secondCarouselSlides.forEach((slide) => {
-        slide.classList.remove("active");
-      });
-      secondCarouselSlides[index].classList.add("active");
-    }
-  
-    // Function to handle next button click for the first carousel
-    function nextCarouselSlide() {
-      currentCarouselIndex = (currentCarouselIndex + 1) % carouselSlides.length;
-      showCarouselSlide(currentCarouselIndex);
-    }
-  
-    // Function to handle previous button click for the first carousel
-    function prevCarouselSlide() {
-      currentCarouselIndex =
-        (currentCarouselIndex - 1 + carouselSlides.length) % carouselSlides.length;
-      showCarouselSlide(currentCarouselIndex);
-    }
-  
-    // Function to handle next button click for the second carousel
-    function nextSecondCarouselSlide() {
-      currentSecondCarouselIndex =
-        (currentSecondCarouselIndex + 1) % secondCarouselSlides.length;
-      showSecondCarouselSlide(currentSecondCarouselIndex);
-    }
-  
-    // Function to handle previous button click for the second carousel
-    function prevSecondCarouselSlide() {
-      currentSecondCarouselIndex =
-        (currentSecondCarouselIndex - 1 + secondCarouselSlides.length) %
-        secondCarouselSlides.length;
-      showSecondCarouselSlide(currentSecondCarouselIndex);
-    }
-  
-    // Function to handle automatic carousel change for the first carousel
-    function autoChangeCarousel() {
-      nextCarouselSlide();
-    }
-  
-    // Function to handle automatic second carousel change
-    function autoChangeSecondCarousel() {
-      nextSecondCarouselSlide();
-    }
-  
-    // Set interval for automatic carousel change for the first carousel
-    setInterval(autoChangeCarousel, 4000);
-  
-    // Set interval for automatic second carousel change
-    setInterval(autoChangeSecondCarousel, 3000);
-  
-    // Event listeners for next and previous buttons for both carousels
-    nextButton.addEventListener("click", nextSecondCarouselSlide);
-    prevButton.addEventListener("click", prevSecondCarouselSlide);
   });
+}
+
+function mainNextSlide() {
+  mainCurrentSlide = (mainCurrentSlide + 1) % mainCarouselSlides.length;
+  mainShowSlide(mainCurrentSlide);
+}
+
+setInterval(mainNextSlide, 5000); // Change slide every 5 seconds
 
 
 
-  // JavaScript code to handle scrolling and add the "scroll" class to the navbar
+
+document.addEventListener('DOMContentLoaded', function () {
+  const secondCarousel = document.querySelector('.second-carousel');
+  const slides = secondCarousel.querySelectorAll('.second-carousel-slide');
+  const prevButton = secondCarousel.querySelector('.prev-button');
+  const nextButton = secondCarousel.querySelector('.next-button');
+
+  let currentIndex = 0;
+
+  function showSlides(startIndex) {
+      slides.forEach((slide, index) => {
+          if (index >= startIndex && index < startIndex + 3) {
+              slide.style.display = 'block';
+          } else {
+              slide.style.display = 'none';
+          }
+      });
+  }
+
+  function nextSlides() {
+      currentIndex = (currentIndex + 3) % slides.length;
+      showSlides(currentIndex);
+  }
+
+  function prevSlides() {
+      currentIndex = (currentIndex - 3 + slides.length) % slides.length;
+      showSlides(currentIndex);
+  }
+
+  // Initialize the first set of three slides
+  showSlides(currentIndex);
+
+  // Add click event listeners to the next and prev buttons
+  nextButton.addEventListener('click', nextSlides);
+  prevButton.addEventListener('click', prevSlides);
+
+  // Automatically switch to the next set of three slides every 5 seconds (adjust as needed)
+});
+
+
 
 // Get a reference to the navbar
 const navbar = document.getElementById('navbar');
-
 // Listen for the "scroll" event on the window
 window.addEventListener('scroll', () => {
     // Check the scroll position
@@ -99,3 +82,26 @@ if (window.scrollY > 100) { // Adjust the value as needed
 } else {
     navbar.classList.remove('scroll');
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var hamburger = document.querySelector('.hamburger');
+  var hamburgerList = document.querySelector('.hamburger-list');
+
+  hamburger.addEventListener('click', function () {
+      // Toggle the visibility of the menu
+      if (hamburgerList.style.display === 'block') {
+          hamburgerList.style.display = 'none';
+      } else {
+          hamburgerList.style.display = 'block';
+      }
+  });
+
+  // Close the menu if the user clicks outside of it
+  document.addEventListener('click', function (event) {
+      if (!hamburger.contains(event.target)) {
+          hamburgerList.style.display = 'none';
+      }
+  });
+});
